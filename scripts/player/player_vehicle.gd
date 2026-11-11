@@ -54,6 +54,13 @@ func setup(data: Dictionary):
 	print("Vehículo configurado: ", data.get("name", "Desconocido"))
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		var error = get_tree().change_scene_to_file("res://scenes/main_menu/MainMenuScene.tscn")
+		if error != OK:
+			push_error("No se pudo volver al menú: %s" % error)
+		return
+
 	# Entrada
 	_handle_input()
 	
@@ -65,7 +72,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# Emisión de señales
-	speed_changed.emit(current_speed)
+	speed_changed.emit(get_speed_kmh())
 	fuel_changed.emit(fuel_amount / max_fuel)
 
 func _handle_input():
@@ -93,10 +100,6 @@ func _handle_input():
 		camera_rotation.x = clamp(camera_rotation.x, -PI / 2, PI / 2)
 		camera.rotation = camera_rotation
 	
-	# Salir (ESC)
-	if Input.is_action_pressed("ui_cancel"):
-		get_tree().change_scene_to_file("res://scenes/main_menu/MainMenuScene.tscn")
-
 func _update_movement(delta):
 	# Aceleración
 	if input_acceleration > 0.0:
@@ -107,16 +110,15 @@ func _update_movement(delta):
 		current_speed = move_toward(current_speed, 0.0, 2.0 * delta)
 	
 	# Dirección
-	var forward = -transform.basis.z
-	var right = transform.basis.x
-	
 	rotation.y += input_steering * steering_speed * delta
 	
 	# Velocidad
-	velocity = forward * current_speed
+	var forward = -transform.basis.z
+	velocity.x = forward.x * current_speed
+	velocity.z = forward.z * current_speed
 	
 	# Gravedad
-	velocity.y -= gravity * delta
+	velocity.y += gravity * delta
 
 func _update_fuel(delta):
 	# Consumo de combustible

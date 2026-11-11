@@ -23,9 +23,9 @@ func _ready():
 	# Conectar señales si existen
 	if player_vehicle:
 		if player_vehicle.has_signal("speed_changed"):
-			player_vehicle.speed_changed.connect(_on_speed_changed)
+			player_vehicle.connect("speed_changed", Callable(self, "_on_speed_changed"))
 		if player_vehicle.has_signal("fuel_changed"):
-			player_vehicle.fuel_changed.connect(_on_fuel_changed)
+			player_vehicle.connect("fuel_changed", Callable(self, "_on_fuel_changed"))
 	
 	# Inicializar valores
 	_update_display()
@@ -41,7 +41,7 @@ func _update_display():
 		return
 	
 	# Actualizar velocidad
-	var speed = player_vehicle.current_speed
+	var speed = float(player_vehicle.get("current_speed")) * 3.6
 	speed_label.text = "Velocidad: %.1f km/h" % speed
 	
 	# Cambiar color según velocidad
@@ -51,7 +51,9 @@ func _update_display():
 	speed_label.add_theme_color_override("font_color", color)
 	
 	# Actualizar combustible
-	var fuel_percentage = (player_vehicle.fuel_amount / player_vehicle.max_fuel) * 100.0
+	var fuel_amount = float(player_vehicle.get("fuel_amount"))
+	var max_fuel = float(player_vehicle.get("max_fuel"))
+	var fuel_percentage = (fuel_amount / max_fuel) * 100.0
 	fuel_label.text = "Combustible: %.1f%%" % fuel_percentage
 	
 	# Cambiar color según combustible

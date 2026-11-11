@@ -1,0 +1,76 @@
+🔧 GUÍA DE DIAGNÓSTICO - DELIVERY DRIVE SIMULATOR
+==================================================
+
+Si Godot sigue mostrando errores después de los últimos cambios,
+sigue EXACTAMENTE estos pasos:
+
+PASO 1: LIMPIAR COMPLETAMENTE GODOT
+═══════════════════════════════════════════════════════════════
+1. Cierra Godot por COMPLETO
+2. Ve a la carpeta del proyecto:
+   C:\Users\libre\OneDrive\Documentos\DeliveryDriveSimulator
+
+3. Elimina la carpeta ".godot" (CARPETA OCULTA)
+   - Si no la ves, habilita "Mostrar archivos ocultos" en Windows
+   - Click derecho en la carpeta → Propiedades → Oculto (desmarcar)
+   - O usa Command: attrib -h .godot /s /d
+
+4. Elimina también:
+   - .vscode/ (si existe)
+   - project.godot (SOLO SI TODO FALLA)
+
+PASO 2: REABRIR PROYECTO
+═══════════════════════════════════════════════════════════════
+1. Abre Godot nuevamente
+2. Carga el proyecto (DeliveryDriveSimulator)
+3. Godot reconocerá automáticamente los cambios
+
+PASO 3: VERIFICAR CONSOLA
+═══════════════════════════════════════════════════════════════
+1. Asegúrate de que la CONSOLA está visible:
+   - Panel inferior → Click en "Output"
+   - O: View > Output desde el menú
+
+2. La consola debe mostrar mensajes VERDES y AZULES, NO rojos
+
+PASO 4: PROBAR EL JUEGO
+═══════════════════════════════════════════════════════════════
+1. Presiona F5 para ejecutar el juego
+2. Verás el MENÚ PRINCIPAL con vehículos
+3. Selecciona un vehículo (haz click)
+4. Haz click en el botón "Comenzar Juego"
+
+SI VES ERRORES ROJOS EN LA CONSOLA:
+╔═════════════════════════════════════════════════════════════╗
+║ COPIA TODO EL TEXTO ROJO Y ENVÍAMELO EXACTAMENTE           ║
+║ Eso me permitirá identificar y arreglar el problema al      ║
+║ instante.                                                   ║
+╚═════════════════════════════════════════════════════════════╝
+
+SI EL JUEGO FUNCIONA:
+✅ ¡Perfecto! Ya puedes jugar
+✅ Mira los controles en el archivo CONTROLS.txt
+
+ARCHIVOS IMPORTANTES:
+════════════════════════════════════════════════════════════════
+📄 MainMenuScene.tscn      → Menú principal (RECIENTEMENTE REPARADO)
+📄 player_vehicle.gd       → Sistema de conducción (RECIENTEMENTE REPARADO)
+📄 main_menu.gd            → Lógica del menú
+📄 game_hud.gd             → HUD del juego
+
+NOTAS TÉCNICAS:
+════════════════════════════════════════════════════════════════
+- Se arregló el formato correcto de [ext_resource] en .tscn
+- Se quitó la asignación incorrecta de move_and_slide()
+- Se limpió el cache de Godot (.godot/)
+- Los scripts fueron validados sintácticamente
+
+¿Todavía hay problemas? Prueba esto:
+════════════════════════════════════════════════════════════════
+1. En Godot, ve a: Proyecto > Configuración del Proyecto
+2. Busca "debug/gdscript"
+3. Verifica que esté activado el Debug de GDScript
+4. Haz click en "Comprobar errores de sintaxis" (si existe)
+5. Presiona F5 nuevamente
+
+¡Que comience el juego! 🎮
