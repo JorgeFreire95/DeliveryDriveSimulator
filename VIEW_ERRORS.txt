@@ -1,0 +1,72 @@
+📋 CÓMO VER EL ERROR - Guía rápida
+
+Si el juego se cierra cuando haces click en "Comenzar Juego", aquí está cómo ver 
+exactamente qué pasó:
+
+═════════════════════════════════════════════════════════════════════════════
+
+PASO 1: ABRE LA CONSOLA
+
+En el editor de Godot, ve al PANEL INFERIOR y haz click en "Output"
+
+Si no lo ves:
+  → Menú: View > Output
+
+Verás una ventana negra con mensajes
+
+═════════════════════════════════════════════════════════════════════════════
+
+PASO 2: PRESIONA F5 (PLAY)
+
+El juego cargará en el menú. En la consola verás:
+  🎮 MainMenu iniciando...
+  ✅ MainMenu listo
+
+Eso es BUENO.
+
+═════════════════════════════════════════════════════════════════════════════
+
+PASO 3: SELECCIONA UN VEHÍCULO
+
+Haz click en cualquier vehículo (por ejemplo "Yamaha Motocicleta")
+
+En la consola verás:
+  🏍️ Vehículo seleccionado: Yamaha
+
+═════════════════════════════════════════════════════════════════════════════
+
+PASO 4: HACES CLICK EN "COMENZAR JUEGO"
+
+Aquí es donde probablemente falla.
+
+Mira lo que aparece en la consola:
+
+✅ SI VES ESTO = ESTÁ FUNCIONANDO:
+   ▶️ Iniciando juego...
+   ✅ Vehículo: Yamaha
+   ✅ Cambiando a escena GameScene...
+   🚗 PlayerVehicle iniciando...
+   ✅ Cámara encontrada
+   ✅ PlayerVehicle listo
+   🎨 GameHUD iniciando...
+   ✅ Player encontrado
+   ✅ GameHUD listo
+
+Si ves todo esto, el juego debería abrirse correctamente.
+
+❌ SI VES ERRORES (líneas ROJAS) = ANOTA EXACTAMENTE QUÉ DICE
+
+Por ejemplo:
+  - "Can't find scene at res://scenes/game/GameScene.tscn"
+  - "Null instance in built-in script"
+  - "Camera3D no encontrada"
+
+═════════════════════════════════════════════════════════════════════════════
+
+COPIA TODO LO QUE VES EN LA CONSOLA (ERRORES + CONTEXTO)
+
+Y comparte el texto exacto.
+
+Eso me permitirá arreglarlo al instante.
+
+═════════════════════════════════════════════════════════════════════════════
