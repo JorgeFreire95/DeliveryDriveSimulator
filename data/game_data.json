@@ -1,0 +1,79 @@
+{
+  "vehicles": [
+    {
+      "id": "motorcycle_sport",
+      "name": "Motocicleta Deportiva",
+      "type": "motorcycle",
+      "price": 15000,
+      "max_speed": 200,
+      "acceleration": 8.5,
+      "weight": 200,
+      "cargo_capacity": 50,
+      "fuel_consumption": 4.5
+    },
+    {
+      "id": "car_sedan",
+      "name": "Sedán Compacto",
+      "type": "car",
+      "price": 25000,
+      "max_speed": 180,
+      "acceleration": 7.0,
+      "weight": 1200,
+      "cargo_capacity": 200,
+      "fuel_consumption": 8.0
+    },
+    {
+      "id": "car_van",
+      "name": "Furgoneta de Carga",
+      "type": "car",
+      "price": 45000,
+      "max_speed": 160,
+      "acceleration": 5.5,
+      "weight": 2000,
+      "cargo_capacity": 500,
+      "fuel_consumption": 10.0
+    }
+  ],
+  "locations": [
+    {
+      "id": "santiago",
+      "name": "Santiago",
+      "region": "Metropolitana",
+      "coordinates": [300, 400],
+      "communes": [
+        "Las Condes",
+        "Providencia",
+        "Ñuñoa",
+        "La Florida",
+        "Puente Alto",
+        "San Bernardo",
+        "Maipú",
+        "Renca"
+      ]
+    },
+    {
+      "id": "valparaiso",
+      "name": "Valparaíso",
+      "region": "Valparaíso",
+      "coordinates": [200, 350],
+      "communes": [
+        "Valparaíso",
+        "Viña del Mar",
+        "Quilpué",
+        "Villa Alemana"
+      ]
+    },
+    {
+      "id": "concepcion",
+      "name": "Concepción",
+      "region": "Bío Bío",
+      "coordinates": [250, 550],
+      "communes": [
+        "Concepción",
+        "Talcahuano",
+        "Los Ángeles",
+        "Temuco"
+      ]
+    }
+  ]
+}
