@@ -62,7 +62,7 @@ func _physics_process(delta):
 	_update_fuel(delta)
 	
 	# Movimiento
-	velocity = move_and_slide()
+	move_and_slide()
 	
 	# Emisión de señales
 	speed_changed.emit(current_speed)

@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://bq04jl2vrmteu"]
-
-[ext_resource type="Script" path="res://scripts/ui/main_menu.gd"]
-
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="uid://c5ujpg12abcd"]
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4ch0"]
 bg_color = Color(0.2, 0.2, 0.3, 1.0)
 
 [node name="MainMenuScene" type="CanvasLayer"]
 layer = 0
-script = ExtResource("res://scripts/ui/main_menu.gd")
+script = ExtResource("uid://c5ujpg12abcd")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_left = 0.0
