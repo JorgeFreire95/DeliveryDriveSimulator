@@ -1,0 +1,199 @@
+🎮 ACCESO RÁPIDO - DeliveryDriveSimulator v0.1.0
+
+═══════════════════════════════════════════════════════════════════
+
+📍 UBICACIÓN DEL PROYECTO
+───────────────────────────────────────────────────────────────────
+C:\Users\libre\OneDrive\Documentos\DeliveryDriveSimulator
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 PARA JUGAR AHORA
+───────────────────────────────────────────────────────────────────
+1. Abre Godot 4.2+ (descarga desde https://godotengine.org)
+2. File > Open Project
+3. Navega a: C:\Users\libre\OneDrive\Documentos\DeliveryDriveSimulator
+4. Click en "Select Current Folder"
+5. Presiona F5 o click en botón ▶️ Play
+
+═══════════════════════════════════════════════════════════════════
+
+⌨️ CONTROLES
+───────────────────────────────────────────────────────────────────
+W / Arriba      → Acelerar
+S / Abajo       → Frenar
+A / Izquierda   → Girar izquierda
+D / Derecha     → Girar derecha
+Mouse Derecha   → Mover cámara (look around)
+ESC             → Volver al menú
+
+═══════════════════════════════════════════════════════════════════
+
+📚 DOCUMENTACIÓN
+───────────────────────────────────────────────────────────────────
+📄 PLAYTEST.md          ← COMIENZA AQUÍ (instrucciones completas)
+📄 README.md            ← Descripción del proyecto
+📄 QUICKSTART.md        ← Setup en 5 minutos
+📄 ARCHITECTURE.md      ← Cómo está organizado el código
+📄 DEVELOPMENT.md       ← Guía para desarrolladores
+📄 TASKS.md             ← Tareas pendientes
+📄 ROADMAP.md           ← Plan futuro (v0.1 → v1.1+)
+
+═══════════════════════════════════════════════════════════════════
+
+✨ CARACTERÍSTICAS IMPLEMENTADAS
+───────────────────────────────────────────────────────────────────
+✅ Menú de selección de vehículos (5 opciones)
+✅ Conducción 3D en primera persona (tipo ETS2)
+✅ Sistema de combustible con consumo realista
+✅ HUD en pantalla (velocímetro, combustible, dinero, ubicación)
+✅ Controles intuitivos (WASD + Mouse)
+✅ Base de datos de 5 vehículos
+✅ Base de datos de 5 ciudades chilenas (24 comunas)
+
+═══════════════════════════════════════════════════════════════════
+
+🎮 VEHÍCULOS DISPONIBLES
+───────────────────────────────────────────────────────────────────
+1. 🏍️ Yamaha Motocicleta
+   • Max Speed: 150 km/h
+   • Aceleración: Muy rápida
+   • Carga: Mínima
+
+2. 🏍️ Harley Motocicleta
+   • Max Speed: 130 km/h
+   • Aceleración: Potente
+   • Carga: Mínima
+
+3. 🚗 Toyota Auto
+   • Max Speed: 100 km/h
+   • Aceleración: Normal
+   • Carga: Normal
+
+4. 🚕 Scania Camioneta
+   • Max Speed: 80 km/h
+   • Aceleración: Lenta
+   • Carga: Máxima
+
+5. 🚘 Volvo Premium
+   • Max Speed: 120 km/h
+   • Aceleración: Confortable
+   • Carga: Media
+
+═══════════════════════════════════════════════════════════════════
+
+🗺️ UBICACIONES (CIUDADES CHILENAS)
+───────────────────────────────────────────────────────────────────
+1. 🏙️ Santiago (13 comunas)
+   La Pintana, Providencia, Ñuñoa, Maipú, Estación Central, etc.
+
+2. 🏖️ Valparaíso (4 comunas)
+   Valparaíso, Viña del Mar, Concón, Quintero
+
+3. 🌊 Concepción (2 comunas)
+   Concepción, Talcahuano
+
+4. 🏔️ Puerto Montt (3 comunas)
+   Puerto Montt, Frutillar, Llanquihue
+
+5. 🏜️ Antofagasta (2 comunas)
+   Antofagasta, Calama
+
+═══════════════════════════════════════════════════════════════════
+
+📊 HUD EN JUEGO
+───────────────────────────────────────────────────────────────────
+Esquina Superior Izquierda:
+  • Velocidad: XX km/h (color rojo-verde según velocidad)
+  • Combustible: XX% (color rojo si < 20%)
+  • Dinero: $XXXX
+  • Ubicación: Nombre ciudad
+
+Esquina Inferior:
+  • Controles visibles (WASD, ESC, etc)
+
+═══════════════════════════════════════════════════════════════════
+
+🐛 PROBLEMAS CONOCIDOS v0.1.0
+───────────────────────────────────────────────────────────────────
+⚠️ Terreno es plano (sin topografía de Chile)
+⚠️ Vehículos son cubos (sin modelos 3D reales)
+⚠️ Sin sistema de entregas/misiones
+⚠️ Sin garages ni concesionarias
+⚠️ Sin música ni sonidos
+⚠️ Sin límites de mapa
+
+(Todos solucionados en v0.2+)
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 PRÓXIMAS VERSIONES
+───────────────────────────────────────────────────────────────────
+v0.2 (Beta)
+  • Sistema de entregas/misiones
+  • Garages para guardar vehículos
+  • Concesionarias para comprar vehículos
+
+v0.3 (Beta+)
+  • Mapa real de Chile (terreno 3D)
+  • Modelos 3D reales de vehículos
+  • Sistema de tráfico IA
+
+v0.4+ (Release)
+  • Sonido y música
+  • Física mejorada
+  • Multijugador
+  • Gráficos AAA
+
+═══════════════════════════════════════════════════════════════════
+
+💾 ARCHIVOS IMPORTANTES
+───────────────────────────────────────────────────────────────────
+Scripts:
+  • scripts/game/game_manager.gd       → Control central del juego
+  • scripts/player/player_vehicle.gd   → Conducción del jugador
+  • scripts/ui/main_menu.gd            → Menú principal
+  • scripts/ui/game_hud.gd             → HUD en pantalla
+  • scripts/data/vehicle_data.gd       → Base de datos
+
+Escenas:
+  • scenes/main_menu/MainMenuScene.tscn  → Menú
+  • scenes/game/GameScene.tscn           → Juego
+
+Datos:
+  • data/game_data.json                → Configuración vehículos/ciudades
+
+═══════════════════════════════════════════════════════════════════
+
+✅ CHECKLIST PARA JUGAR
+───────────────────────────────────────────────────────────────────
+☐ Descargar Godot 4.2+
+☐ Abrir el proyecto en Godot
+☐ Esperar a que se abra (tarda ~10-15s primera vez)
+☐ Presionar F5 o click en ▶️
+☐ Esperar a que cargue la escena (5-10s)
+☐ Ver menú principal
+☐ Seleccionar vehículo
+☐ Click en "Comenzar Juego"
+☐ ¡Conducir! 🏎️
+
+═══════════════════════════════════════════════════════════════════
+
+📞 SOPORTE RÁPIDO
+───────────────────────────────────────────────────────────────────
+Si algo no funciona:
+  1. Verifica que Godot 4.2+ está instalado
+  2. Lee PLAYTEST.md (contiene soluciones comunes)
+  3. Revisa la consola de Godot (Output) para errores
+  4. Intenta Tools > Reimport en Godot
+  5. Si nada funciona, revisa DEVELOPMENT.md
+
+═══════════════════════════════════════════════════════════════════
+
+🎉 ¡DIVIÉRTETE PROBANDO!
+
+El juego está listo. Ahora es tu turno de pilotarlo.
+
+Última actualización: 11/11/2026
+Versión: 0.1.0 MVP Playable
+Estado: ✅ Completado y funcional
