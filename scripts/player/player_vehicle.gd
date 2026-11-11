@@ -20,7 +20,7 @@ var fuel_amount: float = 100.0
 var max_fuel: float = 100.0
 
 # Cámara
-@onready var camera = $Camera3D
+var camera: Camera3D
 var camera_height: float = 1.5
 var camera_rotation: Vector3 = Vector3.ZERO
 var mouse_sensitivity: float = 0.002
@@ -30,11 +30,22 @@ signal speed_changed(new_speed: float)
 signal fuel_changed(new_fuel: float)
 
 func _ready():
+	print("🚗 PlayerVehicle iniciando...")
+	
+	# Obtener cámara
+	camera = $Camera3D
+	if not camera:
+		print("❌ Error: Camera3D no encontrada!")
+		return
+	
+	print("✅ Cámara encontrada")
+	
 	set_physics_process(true)
-	print("PlayerVehicle listo")
 	
 	# Capturar mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	print("✅ PlayerVehicle listo")
 
 func setup(data: Dictionary):
 	vehicle_data = data

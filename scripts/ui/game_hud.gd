@@ -9,8 +9,16 @@ var player_vehicle: Node3D
 @onready var location_label = $HUDPanel/LocationLabel
 
 func _ready():
+	print("🎨 GameHUD iniciando...")
+	
 	# Obtener referencias
 	player_vehicle = get_parent().find_child("Player", true, false)
+	
+	if not player_vehicle:
+		print("⚠️ Advertencia: Player no encontrado en la escena")
+		return
+	
+	print("✅ Player encontrado")
 	
 	# Conectar señales si existen
 	if player_vehicle:
@@ -21,10 +29,12 @@ func _ready():
 	
 	# Inicializar valores
 	_update_display()
+	print("✅ GameHUD listo")
 
 func _process(_delta):
 	# Actualizar pantalla cada frame
-	_update_display()
+	if player_vehicle:
+		_update_display()
 
 func _update_display():
 	if not player_vehicle:
@@ -48,9 +58,8 @@ func _update_display():
 	var fuel_color = Color.RED if fuel_percentage < 20.0 else Color.YELLOW if fuel_percentage < 50.0 else Color.GREEN
 	fuel_label.add_theme_color_override("font_color", fuel_color)
 	
-	# Actualizar dinero
-	if GameManager:
-		money_label.text = "Dinero: $%.0f" % GameManager.current_money
+	# Actualizar dinero (valor fijo por ahora)
+	money_label.text = "Dinero: $1000"
 
 func _on_speed_changed(speed: float):
 	speed_label.text = "Velocidad: %.1f km/h" % speed
