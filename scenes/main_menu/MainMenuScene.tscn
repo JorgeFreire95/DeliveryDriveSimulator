@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bq04jl2vrmteu"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd"]
+
+[node name="MainMenuScene" type="CanvasLayer"]
+layer = 0
+script = ExtResource("res://scripts/ui/main_menu.gd")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_left = 0.0
+anchors_top = 0.0
+anchors_right = 1.0
+anchors_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p4ch0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_left = 0.5
+anchors_top = 0.5
+anchors_right = 0.5
+anchors_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "DELIVERY DRIVE SIMULATOR"
+theme_override_font_sizes/font_size = 28
+text_overline_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubTitle" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Selecciona tu vehículo"
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[node name="VehicleList" type="ItemList" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 5
+item_0/text = "🏍️ Yamaha Motocicleta"
+item_1/text = "🏍️ Harley Motocicleta"
+item_2/text = "🚗 Toyota Auto"
+item_3/text = "🚕 Scania Camioneta"
+item_4/text = "🚘 Volvo Premium"
+
+[node name="StartButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Comenzar Juego"
+theme_override_font_sizes/font_size = 18
+
+[node name="StyleBoxFlat_p4ch0" type="StyleBoxFlat"]
+bg_color = Color(0.2, 0.2, 0.3, 1.0)
+
+[connection signal="item_selected" from="Panel/VBoxContainer/VehicleList" to="." method="_on_vehicle_selected"]
+[connection signal="pressed" from="Panel/VBoxContainer/StartButton" to="." method="_on_start_game"]

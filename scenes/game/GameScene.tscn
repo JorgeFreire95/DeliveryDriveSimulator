@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvmrx1urc41yy1xx"]
+
+[ext_resource type="Script" path="res://scripts/player/player_vehicle.gd"]
+[ext_resource type="Script" path="res://scripts/ui/game_hud.gd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5tg7p"]
+albedo_color = Color(0.5, 0.5, 0.5, 1.0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n8hv2"]
+size = Vector3(200.0, 1.0, 200.0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xkglp"]
+size = Vector3(200.0, 1.0, 200.0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1uyd3"]
+albedo_color = Color(0.8, 0.8, 0.8, 1.0)
+
+[node name="GameScene" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 10, 0)
+light_energy_multiplier = 1.5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gp3ko")
+
+[node name="Terrain" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_5tg7p")
+size = Vector3(200.0, 1.0, 200.0)
+material = SubResource("StandardMaterial3D_5tg7p")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+script = ExtResource("res://scripts/player/player_vehicle.gd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("BoxShape3D_xkglp")
+disabled = false
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+current = true
+fov = 75.0
+
+[node name="VehicleModel" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("BoxMesh_n8hv2")
+material_override = SubResource("StandardMaterial3D_1uyd3")
+
+[node name="GameHUD" type="CanvasLayer" parent="."]
+script = ExtResource("res://scripts/ui/game_hud.gd")
+
+[node name="HUDPanel" type="Panel" parent="GameHUD"]
+anchors_right = 1.0
+anchors_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i7kb9")
+mouse_filter = 2
+
+[node name="SpeedLabel" type="Label" parent="GameHUD/HUDPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 300.0
+offset_bottom = 100.0
+text = "Velocidad: 0 km/h"
+theme_override_font_sizes/font_size = 20
+
+[node name="FuelLabel" type="Label" parent="GameHUD/HUDPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 110.0
+offset_right = 300.0
+offset_bottom = 150.0
+text = "Combustible: 100%"
+theme_override_font_sizes/font_size = 16
+
+[node name="MoneyLabel" type="Label" parent="GameHUD/HUDPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 160.0
+offset_right = 300.0
+offset_bottom = 200.0
+text = "Dinero: $0"
+theme_override_font_sizes/font_size = 16
+
+[node name="LocationLabel" type="Label" parent="GameHUD/HUDPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 210.0
+offset_right = 300.0
+offset_bottom = 250.0
+text = "Ubicación: Santiago"
+theme_override_font_sizes/font_size = 16
+
+[node name="ControlsLabel" type="Label" parent="GameHUD/HUDPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 260.0
+offset_right = 400.0
+offset_bottom = 320.0
+text = "Controles: WASD=Movimiento | MOUSE=Cámara | ESC=Menú"
+theme_override_font_sizes/font_size = 12
+
+[sub_resource type="Environment" id="Environment_gp3ko"]
+ambient_light_source = 1
+ambient_light_energy = 1.0
+ambient_light_energy_multiplier = 1.0
+tonemap_mode = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7kb9"]
+bg_color = Color(0, 0, 0, 0.3)

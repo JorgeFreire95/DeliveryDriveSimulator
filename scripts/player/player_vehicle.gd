@@ -16,11 +16,11 @@ var input_brake: bool = false
 
 # Física
 var gravity: float = -9.8
-var current_fuel: float = 100.0
+var fuel_amount: float = 100.0
 var max_fuel: float = 100.0
 
 # Cámara
-@onready var camera = Camera3D.new()
+@onready var camera = $Camera3D
 var camera_height: float = 1.5
 var camera_rotation: Vector3 = Vector3.ZERO
 var mouse_sensitivity: float = 0.002
@@ -30,10 +30,11 @@ signal speed_changed(new_speed: float)
 signal fuel_changed(new_fuel: float)
 
 func _ready():
-	add_child(camera)
-	camera.position.y = camera_height
 	set_physics_process(true)
 	print("PlayerVehicle listo")
+	
+	# Capturar mouse
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func setup(data: Dictionary):
 	vehicle_data = data
@@ -54,7 +55,7 @@ func _physics_process(delta):
 	
 	# Emisión de señales
 	speed_changed.emit(current_speed)
-	fuel_changed.emit(current_fuel)
+	fuel_changed.emit(fuel_amount / max_fuel)
 
 func _handle_input():
 	input_acceleration = 0.0
@@ -80,6 +81,10 @@ func _handle_input():
 		camera_rotation.x -= mouse_motion.y * mouse_sensitivity
 		camera_rotation.x = clamp(camera_rotation.x, -PI / 2, PI / 2)
 		camera.rotation = camera_rotation
+	
+	# Salir (ESC)
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().change_scene_to_file("res://scenes/main_menu/MainMenuScene.tscn")
 
 func _update_movement(delta):
 	# Aceleración
@@ -106,11 +111,11 @@ func _update_fuel(delta):
 	# Consumo de combustible
 	if current_speed > 0.0:
 		var consumption_rate = 0.1 * (current_speed / max_speed)
-		current_fuel -= consumption_rate * delta
-		current_fuel = max(current_fuel, 0.0)
+		fuel_amount -= consumption_rate * delta
+		fuel_amount = max(fuel_amount, 0.0)
 
 func get_speed_kmh() -> float:
 	return current_speed * 3.6
 
 func refuel(amount: float):
-	current_fuel = min(current_fuel + amount, max_fuel)
+	fuel_amount = min(fuel_amount + amount, max_fuel)
