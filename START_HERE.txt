@@ -1,0 +1,172 @@
+🎮 BIENVENIDO A DELIVERYDRIVESIMULATOR v0.1.0
+═════════════════════════════════════════════════════════════════════════════
+
+¡Hola! Este es tu simulador de entregas tipo ETS2 ambientado en Chile.
+
+El juego está completamente listo para jugar. Aquí está lo que necesitas saber:
+
+═════════════════════════════════════════════════════════════════════════════
+⚡ INICIO RÁPIDO (30 SEGUNDOS)
+═════════════════════════════════════════════════════════════════════════════
+
+1. Ya estás en el editor de Godot
+2. Presiona F5 (o click en botón ▶️ Play en esquina superior derecha)
+3. El juego cargará en 10-15 segundos
+4. Selecciona tu vehículo en el menú
+5. Click "Comenzar Juego"
+6. ¡A CONDUCIR!
+
+═════════════════════════════════════════════════════════════════════════════
+🎮 CONTROLES PRINCIPALES
+═════════════════════════════════════════════════════════════════════════════
+
+W o Arriba      → Acelerar
+S o Abajo       → Frenar
+A o Izquierda   → Girar izquierda
+D o Derecha     → Girar derecha
+Click Derecha   → Mover cámara (look around en primera persona)
+ESC             → Volver al menú
+
+═════════════════════════════════════════════════════════════════════════════
+🏍️ VEHÍCULOS DISPONIBLES
+═════════════════════════════════════════════════════════════════════════════
+
+1. 🏍️ Yamaha Motocicleta     - Rápida (150 km/h)
+2. 🏍️ Harley Motocicleta     - Potente (130 km/h)
+3. 🚗 Toyota Auto             - Económico (100 km/h)
+4. 🚕 Scania Camioneta        - Carga (80 km/h)
+5. 🚘 Volvo Premium           - Lujo (120 km/h)
+
+═════════════════════════════════════════════════════════════════════════════
+✨ CARACTERÍSTICAS IMPLEMENTADAS
+═════════════════════════════════════════════════════════════════════════════
+
+✅ Menú de selección de vehículos
+✅ Conducción 3D en primera persona (tipo ETS2)
+✅ Sistema de combustible realista con consumo
+✅ HUD en pantalla con velocímetro, combustible, dinero, ubicación
+✅ Base de datos de 5 vehículos diferentes
+✅ Base de datos de 5 ciudades chilenas con comunas reales
+✅ Controles intuitivos (WASD + Mouse)
+✅ Gravedad y física básica
+
+═════════════════════════════════════════════════════════════════════════════
+📚 DOCUMENTACIÓN
+═════════════════════════════════════════════════════════════════════════════
+
+PARA JUGAR:
+  📄 PLAYTEST.md          - Instrucciones completas (¡COMIENZA AQUÍ!)
+  📄 QUICKACCESS.txt      - Referencia rápida
+
+PARA DESARROLLAR:
+  📖 README.md            - Descripción del proyecto
+  🏗️  ARCHITECTURE.md     - Cómo está organizado el código
+  🛠️  DEVELOPMENT.md      - Guía para desarrolladores
+  📋 TASKS.md             - Tareas pendientes
+  🗺️  ROADMAP.md          - Plan futuro
+
+═════════════════════════════════════════════════════════════════════════════
+🚀 PRÓXIMOS PASOS (DESPUÉS DE PROBAR)
+═════════════════════════════════════════════════════════════════════════════
+
+v0.2 (Próxima versión):
+  • Sistema de entregas/misiones
+  • Garages para guardar vehículos
+  • Concesionarias para comprar vehículos
+  • Expansión del mapa
+
+v0.3+:
+  • Modelos 3D reales de vehículos
+  • Mapa real de Chile (terreno 3D)
+  • Tráfico IA
+  • Sonido y música
+  • Multijugador
+
+═════════════════════════════════════════════════════════════════════════════
+🎯 ¿QUÉ ES ESTO?
+═════════════════════════════════════════════════════════════════════════════
+
+DeliveryDriveSimulator es tu visión convertida en código. Un simulador de
+entregas tipo Euro Truck Simulator 2, ambientado completamente en Chile.
+
+Puedes:
+  • Seleccionar entre diferentes vehículos (motos y autos)
+  • Conducir en primera persona en mapas de ciudades chilenas
+  • Consumir combustible realista
+  • Ver tu progreso en tiempo real
+
+Todo está programado, documentado y listo para expandir.
+
+═════════════════════════════════════════════════════════════════════════════
+⚠️ PROBLEMAS CONOCIDOS v0.1.0
+═════════════════════════════════════════════════════════════════════════════
+
+• El terreno es un plano plano (sin topografía de Chile)
+• Los vehículos son cubos (sin modelos 3D reales)
+• No hay misiones/entregas aún (¡próxima versión!)
+• Sin garages ni concesionarias
+• Sin música ni sonidos
+• Mapa sin límites de frontera
+
+Todos estos problemas se solucionarán en v0.2+
+
+═════════════════════════════════════════════════════════════════════════════
+✅ CHECKLIST DE PRIMER JUEGO
+═════════════════════════════════════════════════════════════════════════════
+
+□ Abre Godot (si no lo tienes, descarga desde godotengine.org)
+□ Presiona F5 para iniciar el juego
+□ Selecciona una moto o auto en el menú
+□ Click en "Comenzar Juego"
+□ Prueba los controles:
+  □ W para acelerar
+  □ S para frenar
+  □ A/D para girar
+  □ Click derecha + mouse para mirar alrededor
+□ Observa el HUD (velocidad, combustible, dinero)
+□ Presiona ESC para volver al menú
+□ Intenta otro vehículo
+□ Lee PLAYTEST.md para más detalles
+
+═════════════════════════════════════════════════════════════════════════════
+💾 ESTRUCTURA DEL PROYECTO
+═════════════════════════════════════════════════════════════════════════════
+
+scripts/
+  ├── game/              Sistema central del juego
+  ├── player/            Conducción del jugador
+  ├── ui/                Interfaces gráficas
+  ├── data/              Base de datos
+  ├── utils/             Utilidades (expansión futura)
+  └── vehicles/          Sistemas de vehículos (expansión futura)
+
+scenes/
+  ├── main_menu/         Menú principal
+  └── game/              Escena principal de juego
+
+data/
+  └── game_data.json     Configuración de vehículos y ciudades
+
+assets/
+  ├── models/            Modelos 3D (pendiente)
+  ├── textures/          Texturas (pendiente)
+  ├── sounds/            Sonidos (pendiente)
+  └── music/             Música (pendiente)
+
+═════════════════════════════════════════════════════════════════════════════
+🎉 ¡AHORA A JUGAR!
+═════════════════════════════════════════════════════════════════════════════
+
+Presiona F5 en este mismo editor de Godot para iniciar el juego.
+
+Si tienes dudas, lee PLAYTEST.md o QUICKACCESS.txt
+
+¿Preguntas? Revisa DEVELOPMENT.md para detalles técnicos
+
+═════════════════════════════════════════════════════════════════════════════
+
+¡Que disfrutes tu juego! 🏎️
+
+Versión: 0.1.0 MVP
+Estado: Completo y Jugable
+Última actualización: 11/11/2026
