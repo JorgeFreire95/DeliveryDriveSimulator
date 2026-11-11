@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4ch0"]
+bg_color = Color(0.2, 0.2, 0.3, 1.0)
+
 [node name="MainMenuScene" type="CanvasLayer"]
 layer = 0
 script = ExtResource("res://scripts/ui/main_menu.gd")
@@ -57,9 +60,6 @@ item_4/text = "🚘 Volvo Premium"
 layout_mode = 2
 text = "Comenzar Juego"
 theme_override_font_sizes/font_size = 18
-
-[node name="StyleBoxFlat_p4ch0" type="StyleBoxFlat"]
-bg_color = Color(0.2, 0.2, 0.3, 1.0)
 
 [connection signal="item_selected" from="Panel/VBoxContainer/VehicleList" to="." method="_on_vehicle_selected"]
 [connection signal="pressed" from="Panel/VBoxContainer/StartButton" to="." method="_on_start_game"]

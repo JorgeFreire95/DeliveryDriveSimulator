@@ -113,10 +113,10 @@ func _update_movement(delta):
 	rotation.y += input_steering * steering_speed * delta
 	
 	# Velocidad
-	velocity = (forward * current_speed + Vector3.DOWN * gravity) * delta
+	velocity = forward * current_speed
 	
-	# Gravedad adicional
-	velocity.y += gravity * delta
+	# Gravedad
+	velocity.y -= gravity * delta
 
 func _update_fuel(delta):
 	# Consumo de combustible
